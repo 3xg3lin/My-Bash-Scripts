@@ -2,7 +2,7 @@
 # using a variable to hold the list
 #
 list="Alabama Alaska Arizona Arkansas Colorado"
-list=$list" Conneticut"
+list=$list' Conneticut'	    #don't put space before quotation mark
 
 for state in $list
 do
