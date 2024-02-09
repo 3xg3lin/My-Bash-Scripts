@@ -1,0 +1,7 @@
+#!/bin/bash
+# multiple variables
+#
+for (( a=1, b=10 ; b>=1 ; a++, b-- ))	#you can define only one condition in the for loop
+do
+    echo "$b -$a"
+done
