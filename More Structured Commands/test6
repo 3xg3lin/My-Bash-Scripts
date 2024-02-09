@@ -3,10 +3,10 @@
 #
 for file in $HOME/Downloads/*
 do
-    if [ -d $file ]
+    if [ -d "$file" ]
     then
 	echo "$file is a directory"
-    elif [ -f $file ]
+    elif [ -f "$file" ]
     then
 	echo "$file is a file"
     fi
