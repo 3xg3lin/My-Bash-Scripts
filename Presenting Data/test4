@@ -1,0 +1,2 @@
+ls: cannot access 'badfile2': No such file or directory
+## this is output for `ls -al badfile2 2> test4` command
