@@ -1,1 +1,1 @@
-## the output of `ls -la badfile > test3` command
+## the output from `ls -la badfile > test3` command
