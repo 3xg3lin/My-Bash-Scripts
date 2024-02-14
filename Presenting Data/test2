@@ -1,0 +1,4 @@
+total 4
+-rw-r--r-- 1 ghost ghost  0 Feb 14 15:18 test2
+-rw-r--r-- 1 ghost ghost 73 Feb 14 13:56 testfile
+## This created for STDOUT file descriptor example
