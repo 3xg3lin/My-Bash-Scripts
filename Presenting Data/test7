@@ -1,0 +1,3 @@
+-rw-r--r-- 1 ghost ghost 200 Feb 14 15:21 test2
+-rw-r--r-- 1 ghost ghost  52 Feb 14 17:02 test3
+## This output from `ls -al test test2 test3 badtest 2> test6 1> test7` command
