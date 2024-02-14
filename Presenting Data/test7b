@@ -1,0 +1,5 @@
+ls: cannot access 'test': No such file or directory
+ls: cannot access 'badtest': No such file or directory
+-rw-r--r-- 1 ghost ghost 200 Feb 14 15:21 test2
+-rw-r--r-- 1 ghost ghost  52 Feb 14 17:02 test3
+## This output from `ls -al test test2 test3 badtest &> test7b` command
