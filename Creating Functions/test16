@@ -1,0 +1,4 @@
+#!/bin/bash
+# After installing shtool library...
+#
+shtool platform
