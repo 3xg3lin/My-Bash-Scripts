@@ -1,0 +1,64 @@
+#!/bin/bash
+# gawk example in bash script
+
+gawk '{print "Hello World"}'         #place script command into two curly bracets.
+
+cat << EOF > data2.txt
+One line of test text.
+Two line of test text.
+Three line of test text.
+EOF
+
+gawk '{print $1}' data2.txt	   #gawk automatically assign a variable from each data element in a line.
+
+gawk -F: '{print $1}' /etc/passwd	    #-F option specify the file seperator.
+
+echo "My name is Rich" | gawk '{$4="Christine"; print $0}'
+
+gawk '{
+$4="Christine"
+print $0}'
+My name is Rich
+
+cat << EOF > script2.gawk
+{print $1 "'s home directory is " $6}
+EOF
+
+gawk -F : -f script2.gawk /etc/passwd
+# root's home directory is /root
+# bin's home directory is /bin
+
+cat << EOF > script3.gawk
+{
+text="'s home directory is"
+print $1 text $6
+}
+EOF
+
+gawk -F: -f script3.gawk /etc/passwd
+# root's home directory is /root
+# bin's home directory is /bin
+
+gawk 'BEGIN {print "Hello World!"}'	    #BEGIN part is executed before any data is read.
+# Hello World!
+
+cat << EOF > data3.txt
+Line 1
+Line 2
+Line 3
+EOF
+
+gawk 'BEGIN {print "The data3 File Contents:"} {print $0}' data3.txt
+# The data3 File Contents:
+# Line 1
+# Line 2
+# Line 3
+
+gawk 'BEGIN {print "The data3 File Contents:"} {print $0} END {print "End of File"}' data3.txt
+# The data3 File Contents:
+# Line 1
+# Line 2
+# Line 3
+# End of File
+
+
