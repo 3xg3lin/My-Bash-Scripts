@@ -1,0 +1,33 @@
+#!/bin/bash
+# sed example continue
+
+cat data4.txt
+# This is a test of the test script.
+# This is the second test of the test script.
+
+sed 's/test/trial/' data4.txt
+# This is a trial of the test script.
+# This is the second trial of the test script.
+
+sed 's/test/trial/2' data4.txt
+# This is a test of the trial script.
+# This is the second test of the trial script.
+
+sed ' s/test/trial/g' data4.txt
+# This is a trial of the trial script.
+# This is the second trial of the trial script.
+
+cat data5.txt
+# This is a test line.
+# This is a different line.
+
+sed -n 's/test/trial/p' data5.txt   # Using a combination of ‘-n’ and the ‘p’ substitution flag, it produces output modified only by the modification in the substitution command.
+# This is a trial line.
+
+sed 's/test/trial/w test.txt' data5.txt
+# This is a trial line.
+# This is a different line.
+
+cat test.txt
+# This is a trial line.
+
