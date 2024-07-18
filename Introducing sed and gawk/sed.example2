@@ -31,3 +31,6 @@ sed 's/test/trial/w test.txt' data5.txt
 cat test.txt
 # This is a trial line.
 
+sed 's/\/bin\/bash/\/bin\/csh/' passwd  # using sed in this way to escape the forward slash leads to confusion and mistakes
+
+sed 's!/bin/bash!/bin/csh!' passwd  # exclamation mark can be used for string delimiter
