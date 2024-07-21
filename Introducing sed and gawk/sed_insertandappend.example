@@ -1,0 +1,52 @@
+#!/bin/bash
+# The insert command adds a new line before the specified line.
+# The append command adds a new line after the specified line.
+
+echo "Test Line 2" | sed 'i\Test Line 1'
+# Test Line 1
+# Test Line 2
+
+echo "The Line 2" |sed 'a\Test Line 1'
+# Test Line 2
+# Test Line 1
+
+echo "Test Line 2" |sed 'i\
+Test Line 1'
+# Test Line 1
+# Test Line 2
+
+# you cannot use a range of addresses.
+sed '3i\
+This is an inserted line.' data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is an inserted line.
+# This is line number 3.
+# This is line number 4.
+
+sed '3a\
+This is an appended line.' data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is line number 3.
+# This is an appended line.
+# This is line number 4.
+
+sed '$a\
+This is a new line of text.' data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is line number 3.
+# This is line number 4.
+# This is a new line of text.
+
+sed '1i\
+This is one line of new text.\
+This is another line of new text.' data6.txt
+# This is one line of new text.
+# This is another line of new text.
+# This is line number 1.
+# This is line number 2.
+# This is line number 3.
+# This is line number 4.
+
