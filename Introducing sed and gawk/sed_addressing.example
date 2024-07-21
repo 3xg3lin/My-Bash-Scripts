@@ -1,0 +1,43 @@
+#!/bin/bash
+# Using addressing in sed editor
+
+sed '2s/dog/cat/' data1.txt
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy cat.
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy dog.
+
+sed '2,3s/dog/cat/' data1.txt
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy cat.
+# The quick brown fox jumps over the lazy cat.
+# The quick brown fox jumps over the lazy dog.
+
+sed '2,$s/dog/cat/' data1.txt
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy cat.
+# The quick brown fox jumps over the lazy cat.
+# The quick brown fox jumps over the lazy cat.
+
+sed '/Samantha/s/bash/csh/' /etc/passwd   # This pattern matches the user and then modifies the shell
+# Samantha:x:502:502::/home/Samantha:/bin/csh
+
+sed '2{
+s/fox/elephant/
+s/dog/cat/
+}' data1.txt
+# The quick brown fox jumps over the lazy dog.
+# The quick brown elephant jumps over the lazy cat.
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy dog.
+
+sed '3,${
+s/brown/green/
+s/lazy/active/
+}' data1.txt
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy dog.
+# The quick green fox jumps over the active dog.
+# The quick green fox jumps over the active dog.
+
+
