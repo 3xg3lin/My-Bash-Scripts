@@ -1,0 +1,38 @@
+#!/bin/bash
+
+sed 'y/123/789/' data8.txt
+# This is line number 7.
+# This is line number 8.
+# This is line number 9.
+# This is line number 4.
+# This is line number 7 again.
+# This is yet another line.
+# This is the last line in the file.
+
+
+echo "This 1 is  a test of 1 try." | sed 'y/123/456/'
+# This 4 is a test of 4 try.
+
+echo "this is a test" | sed 'p'
+# this is a test
+# this is a test
+
+cat data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is line number 3.
+# This is line number 4.
+
+sed -n '/number 3/p' data6.txt
+# This is line number 3.
+
+sed -n '2,3p' data6.txt
+# This is line number 2.
+# This is line number 3.
+
+sed -n '/3/{
+p
+s/lin/test/p
+}' data6.txt
+# This is line number 3.
+# This is text number 3
