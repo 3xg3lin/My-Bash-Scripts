@@ -36,3 +36,105 @@ s/lin/test/p
 }' data6.txt
 # This is line number 3.
 # This is text number 3
+
+cat data1.txt
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy dog.
+# The quick brown fox jumps over the lazy dog.
+
+sed '=' data1.txt
+# 1
+# The quick brown fox jumps over the lazy dog.
+# 2
+# The quick brown fox jumps over the lazy dog.
+# 3
+# The quick brown fox jumps over the lazy dog.
+# 4
+# The quick brown fox jumps over the lazy dog.
+
+sed -n '/number 4/{
+=
+p
+{' data6.txt
+# 4
+# This is line number 4.
+
+cat data9.txt
+# This		line		contains		tabs.
+
+sed -n 'l' data9.txt
+# This\tline\tcontains\ttabs.$
+
+cat data10.txt
+# This line contains an escape character.
+
+sed -n 'l' data10.txt
+# This line contains an escape character. \a$
+
+sed '1,2w test.txt' data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is line number 3.
+# This is line number 4.
+
+cat test.txt
+# This is line number 1.
+# This is line number 2.
+
+cat data11.txt
+# Blum, R	Browncoat
+# McGuiness, A	Alliance
+# Bresnahan, C	Browncoat
+# Harken, C	Alliance
+
+sed -n '/Browncoat/w Browncoats.txt' data11.txt
+
+cat Browncoats.txt
+# Blum, R	Browncoat
+# Bresnahan, C	Browncoat
+
+cat data12.txt
+# This is an added line.
+# This is the second added line.
+
+sed '3r data12.txt' data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is line number 3.
+# This is an added line.
+# This is the second added line.
+# This is line number 4.
+
+sed '/number 2/r data12.txt' data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is an added line.
+# This is the second added line.
+# This is line number 3.
+# This is line number 4.
+
+sed '$r data12.txt' data6.txt
+# This is line number 1.
+# This is line number 2.
+# This is line number 3.
+# This is line number 4.
+# This is an added line.
+# This is the second added line.
+
+cat notice.std
+# Would the following people:
+# LIST
+# please report to the ship's captain.
+
+sed '/LIST/{
+r data11.txt
+d
+}' notice.std
+# Would the follwoing people:
+# Blum, R	Browncoat
+# McGuiness, A	Alliance
+# Bresnahan, C	Browncoat
+# Harken, C	Alliance
+# please report to the ship's captain.
+
